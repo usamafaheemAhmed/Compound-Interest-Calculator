@@ -20,9 +20,9 @@
 //   }
 
 function input(){
-    let input = document.getElementById('input').value;
-    alert(input);
-    document.getElementById('initialInvestment').value = toComma(input);
+    let input1 = document.getElementById('initialInvestment');
+    input1.value =  toComma(Number(input1.value));
+    
 }
 
 
@@ -51,7 +51,7 @@ function Calculate() {
     document.getElementById('gap').classList.remove('d-none');
     document.getElementById('btn').classList.remove('d-none');
 
-    let initialInvestment = parseFloat(document.getElementById("initialInvestment").value); //=P
+    let initialInvestment = parseFloat(document.getElementById("initialInvestment").value).replace('$','').replace(',',''); //=P
     let monthlyContribution = parseFloat(document.getElementById("monthlyContribution").value); //=PMT
     let estimatedInterestRate = parseFloat(document.getElementById("estimatedInterestRate").value); //=r
     let lengthTimeYears = parseFloat(document.getElementById("lengthTimeYears").value); //=t
