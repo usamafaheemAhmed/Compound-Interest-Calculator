@@ -1,0 +1,202 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1,
+      shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+      integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N"
+      crossorigin="anonymous">
+    <link rel="stylesheet" href="./style.css">
+
+    <title>Hello, world!</title>
+  </head>
+  <body>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-3"></div>
+        <div class="col-md-6 mt-5">
+          <h1 id="Calculatorh1">Compound Interest Calculator</h1>
+          <p class="p1">Determine how much your money can grow using the power of compound
+            interest. </p>
+            <p class="p1">* DENOTES A REQUIRED FIELD</p>
+
+          <!-- create a for -->
+          <form >
+              <div class="row headcolor mt-0">
+              <p>Step 1: Initial Investment</p>
+            </div>
+            <div class="row form">
+              <div class="col-md-9">
+                <label for="initialInvestment">Initial Investment <b>*</b>
+                </label>
+                <p class="p1">Amount of money that you have available to invest initially.</p>
+              </div>
+              <div class="col-md-3">
+                <input type="number" class="form-control mt-3"
+                  id="initialInvestment" onchange="input()">
+              </div>
+            </div>
+            <div class="row headcolor">
+              <p>Step 2: Contribute</p>
+            </div>
+            <div class="row form">
+              <div class="col-md-9">
+                <label for="monthlyContribution">Monthly Contribution</label>
+                <p class="p1">Amount that you plan to add to the principal every month, or
+                  a negative number for the amount that you plan to withdraw
+                  every month.</p>
+              </div>
+              <div class="col-md-3">
+                <input type="number" class="form-control mt-3"
+                  id="monthlyContribution">
+              </div>
+            </div>
+          </form>
+          <form style="padding-top: 2px ;">
+            <div class="row form">
+              <div class="col-md-9">
+                <label for="lengthTimeYears">Length of Time in Years <b>*</b>
+                </label>
+                <p class="p1">Length of time, in years, that you plan to save.</p>
+              </div>
+              <div class="col-md-3">
+                <input type="number" class="form-control mt-3"
+                  id="lengthTimeYears">
+              </div>
+            </div>
+            <div class="row headcolor">
+              <p>Step 3: Interest Rate</p>
+            </div>
+            <div class="row form">
+              <div class="col-md-9">
+                <label for="estimatedInterestRate">Estimated Interest Rate <b>*</b></label>
+                <p class="p1">Your estimated annual interest rate.</p>
+              </div>
+              <div class="col-md-3">
+                <input type="number" class="form-control"
+                  id="estimatedInterestRate">
+              </div>
+            </div>
+          </form>
+          <form style="padding-top: 2px ; margin-bottom: 2px;">
+            <!-- uselessentry -->
+            <div class="row form">
+              <div class="col-md-9">
+                <label for="interestRateVarianceRange">Interest rate variance range
+                </label>
+                <p class="p1">Range of interest rates (above and below the rate set above)
+                  that you desire to see results for.</p>
+              </div>
+              <div class="col-md-3">
+                <input type="number" class="form-control"
+                  id="interestRateVarianceRange">
+              </div>
+            </div> 
+            <div class="row headcolor">
+              <p>Step 4: Compound It</p>
+            </div>
+            <div class="row form">
+              <div class="col-md-9">
+                <label for="compundFrequency">Compound Frequency</label>
+                <p class="p1">Times per year that interest will be compounded.</p>
+              </div>
+              <div class="col-md-3">
+                <select class="form-control" name="compundFrequency" id="compundFrequency">
+                  <option selected value="12">Annually</option>
+                  <option value="2">Semi-Annually</option>
+                  <option value="4">Quarterly</option>
+                  <option value="12">Monthly</option>
+                  <option value="365">Daily</option>
+                </select>
+              </div>
+            </div>
+          </form>
+          <div class="row form">
+            <div class="col-12">
+              <button type="button" class="btn btn-primary float-right ml-2" id="Reset">Reset</button>
+              <button type="button" class="btn btn-danger float-right" id="calculateButton" onclick="Calculate()">Calculate</button>
+            </div>
+          </div>
+
+          <div class="row headcolor d-none" id="Results">
+           <div class="col-md-12">
+            <p class="Results text-center">The Results Are In</p>
+            <p id="retsulting">In <mark id="year"></mark> years, you will have <mark id="totalResult"></mark></p>
+            <hr>
+            <p id="chartDiscription">The chart below shows an estimate of how much your initial savings will grow over time , according to the interest rate and compounding schedule you specified.
+              <br> <br>
+              Please remember that slight adjustments in any of those variables can affect the outcome. Reset the calculator and provide different figures to show different scenarios.</p>
+              <div  id="chartContainer"></div>
+            </div>
+          </div>
+          <div class="row headcolor  d-none" id="gap">
+           <div class="col-md-12">
+            <p><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br></p>
+           </div>
+           </div>
+          <div class="row headcolor d-none" id="btn">
+            <div class="col-md-4"></div>
+            <div class="col-md-4">
+             <button class="btn btn-primary ml-4 mb-3" id="tabelShow"  onclick="tableshow()">Show Tabel</button>
+             </div>
+             <div class="col-md-4"></div>
+           </div>
+           <div class="row headcolor" id="table">
+            <div class="col-md-12">
+              <p class="text-center">Total Savings in US Dollars</p>
+              <table class="table table-hover table-bordered" id="tableData">
+                <thead>
+                  <tr>
+                    <th class="text-center">Years</th>
+                    <th class="text-center">Future Value <span id="persent"></span></th>
+                    <th class="text-center">Total Contributions</th>
+                  </tr>
+                </thead>
+                <tbody>
+               
+                </tbody>
+              </table>
+            </div>
+           </div>
+        </div>
+        <div class="col-md-3"></div>
+      </div>
+    </div>
+
+
+
+
+
+
+
+    <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
+      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+      crossorigin="anonymous"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct"
+      crossorigin="anonymous"></script>
+      <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+      <script src="https://code.jquery.com/jquery-3.6.1.js" integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous"></script>
+
+    <!-- Option 2: Separate Popper and Bootstrap JS -->
+    <!--
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.min.js" integrity="sha384-+sLIOodYLS7CIrQpBjl+C7nPvqq+FbNUBDunl/OZv93DB7Ln/533i8e/mZXLi/P+" crossorigin="anonymous"></script>
+    -->
+    <script src="./script.js"></script>
+
+
+
+  </body>
+</html>

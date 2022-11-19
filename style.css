@@ -1,0 +1,89 @@
+@import url('https://fonts.googleapis.com/css2?family=Arvo:ital,wght@0,400;0,700;1,400;1,700&family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
+#Calculatorh1{
+    color: #6F7479;
+}
+.headcolor{
+    background-color: #218383;
+    color: white;
+    font-family: 'Arvo', serif !important;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 21px;
+    padding-top: 10px;
+    padding-left: 10px;
+    font-style: normal;
+}
+.form{
+    background-color: #00325B;
+    color: white;
+    padding: 10px;
+    font-family: 'Open Sans', sans-serif;
+}
+label{
+    font-family: 'Open Sans', sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 24px;
+    font-style: normal;
+}
+
+.p1{
+    font-family: 'Open Sans', sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 16px;
+    font-style: normal;
+    padding-top: 0ch;
+    margin: 0ch;
+}
+.Results{
+    font-family: 'Arvo', serif !important;
+    font-size: 28px;
+    font-weight: 400;
+    line-height: 33px;
+    font-style: normal;
+}
+#retsulting{
+    font-family: 'Open Sans', sans-serif;
+    font-size: 23px;
+    font-weight: 600;
+    line-height: 28px;
+    font-style: normal;
+    text-align: center;
+}
+
+mark{
+    background-color: #106060;
+    color: white;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 23px;
+    font-weight: 700;
+    line-height: 28px;
+    font-style: normal;
+}
+hr{
+    background-color: white;
+}
+#chartDiscription{
+    font-family: 'Open Sans', sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+    font-style: normal;
+    text-align: justify;
+}
+
+table{
+    font-family:sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    line-height: 24px;
+    font-style: normal;
+    text-align: center;
+    color: rgb(0, 0, 0);
+    background-color: white;
+    
+}
+b{
+    color: red;
+}
