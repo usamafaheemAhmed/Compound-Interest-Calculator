@@ -16,6 +16,15 @@
     </head>
     <body>
         <h1 class="text-center">Table Api Using Fetch</h1>
+        <div class="row mb-5">
+            <div class="col-md-4"></div>
+            <div class="col-md-4">
+                <label for="salary" class="text-center"> Enter how mush salary you want to distribute</label>
+                <input type="text" class="form-control" id="salary" onblur="commas()">
+            </div>
+            <div class="col-md-4"></div>
+        </div>
+        
         <div class="container">
             <div class="row">
                 <table class="table table-bordered" id="table">
@@ -28,6 +37,7 @@
                         <th scope="col">Websight</th>
                         <th scope="col">Address</th>
                         <th scope="col">Company</th>
+                        <th scope="col">salary</th>
                       </tr>
                     </thead>
                     <tbody>

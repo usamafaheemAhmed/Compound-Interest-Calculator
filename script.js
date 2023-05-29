@@ -51,7 +51,7 @@ function Calculate() {
     document.getElementById('gap').classList.remove('d-none');
     document.getElementById('btn').classList.remove('d-none');
 
-    let initialInvestment = parseFloat(document.getElementById("initialInvestment").value).replace('$','').replace(',',''); //=P
+    let initialInvestment = parseFloat(document.getElementById("initialInvestment").value.replace('$','').replace(',','')); //=P
     let monthlyContribution = parseFloat(document.getElementById("monthlyContribution").value); //=PMT
     let estimatedInterestRate = parseFloat(document.getElementById("estimatedInterestRate").value); //=r
     let lengthTimeYears = parseFloat(document.getElementById("lengthTimeYears").value); //=t
@@ -72,7 +72,7 @@ function Calculate() {
     let toatalFutureValue = compundinterest + futurevalue;
   
  
-    document.getElementById("year").innerHTML = '10';
+    document.getElementById("year").innerHTML = lengthTimeYears;
     document.getElementById("totalResult").innerHTML = toComma(toatalFutureValue);
     document.getElementById("persent").innerHTML =estimatedInterestRate;
 
@@ -121,34 +121,34 @@ function Calculate() {
 
     $('html, body').animate({scrollTop: $('#gap').show().offset().top}, 1400);
 
-    // let chartarray=[
-    //     { y: 450 },
-    //     { y: 414 },
-    //     { y: 520, indexLabel: "\u2191 highest", markerColor: "red", markerType: "triangle" },
-    //     { y: 460 },
-    //     { y: 450 },
-    //     { y: 500 },
-    //     { y: 480 },
-    //     { y: 480 },
-    //     { y: 410, indexLabel: "\u2193 lowest", markerColor: "DarkSlateGrey", markerType: "cross" },
-    //     { y: 500 },
-    //     { y: 480 },
-    //     { y: 510 }
-    // ];
+    let chartarray=[
+        { y: 450 },
+        { y: 414 },
+        { y: 520, indexLabel: "\u2191 highest", markerColor: "red", markerType: "triangle" },
+        { y: 460 },
+        { y: 450 },
+        { y: 500 },
+        { y: 480 },
+        { y: 480 },
+        { y: 410, indexLabel: "\u2193 lowest", markerColor: "DarkSlateGrey", markerType: "cross" },
+        { y: 500 },
+        { y: 480 },
+        { y: 510 }
+    ];
 
-    // let chart = new CanvasJS.Chart("chartContainer", {
-    //     animationEnabled: true,
-    //     theme: "light2",
-    //     title: {
-    //         text: "Total Savings"
-    //     },
-    //     data: [{
-    //         type: "line",
-    //         indexLabelFontSize: 16,
-    //         dataPoints: chartarray
-    //     }]
-    // });
-    // chart.render();
+    let chart = new CanvasJS.Chart("chartContainer", {
+        animationEnabled: true,
+        theme: "light2",
+        title: {
+            text: "Total Savings"
+        },
+        data: [{
+            type: "line",
+            indexLabelFontSize: 16,
+            dataPoints: chartarray
+        }]
+    });
+    chart.render();
 
 
 
